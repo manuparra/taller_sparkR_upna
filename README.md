@@ -19,7 +19,6 @@ Universidad de Granada
 
 Taller realizado en Departamento de Estadística e Investigación Operativa de la <a href="http://unavarra.com">Universidad Pública de Navarra</a>.
 
-
 ## Contenido del Taller
 
 - [Introducción al procesamiento masivo de datos](./html/01._Procesamiento_masivo_de_datos_con_Hadoop_y_Spark.html)
@@ -41,3 +40,5 @@ Taller realizado en Departamento de Estadística e Investigación Operativa de l
 - [Uso avanzado de Spark: Scala, Streaming, etc. Amazon AWS](./html/16._Uso_avanzado.html)
 - [Soluciones a los problemas](./html/Soluciones.html)
 
+<HR>
+Manuel Parra
