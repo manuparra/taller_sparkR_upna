@@ -1,14 +1,12 @@
 # Taller de procesamiento en BigData con Spark + R 
 
-Impartido por:
+*Impartido por*:
 
-Manuel J. Parra Royón
+**Manuel J. Parra Royón**
 manuelparra@decsai.ugr.es
-PhD Student. BigData Time Series Data Mining
+*PhD Student. BigData Time Series Data Mining*
 
-Soft Computing and Intelligent Information Systems
-
-Distributed Computational Intelligence and Time Series
+Soft Computing and Intelligent Information Systems / Distributed Computational Intelligence and Time Series Lab
 
 Universidad de Granada
 
