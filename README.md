@@ -8,7 +8,7 @@
 *Impartido por*:
 
 **Manuel J. Parra Royón**
-manuelparra@decsai.ugr.es
+ (manuelparra@decsai.ugr.es) 
 *PhD Student. BigData Time Series Data Mining*
 
 Soft Computing and Intelligent Information Systems / Distributed Computational Intelligence and Time Series Lab
@@ -41,4 +41,4 @@ Taller realizado en Departamento de Estadística e Investigación Operativa de l
 - [Soluciones a los problemas](./html/Soluciones.html)
 
 <HR>
-Manuel Parra
+
