@@ -23,4 +23,4 @@ Taller realizado en Departamento de Estadística e Investigación Operativa de l
 ## Contenido del Taller
 
 - [Introducción al procesamiento masivo de datos](./html/01.+Procesamiento+masivo+de+datos+con+Hadoop+y+Spark.html)
-- [R + Spark + BigData](./html/02.+R+%2B+Spark+%2B+BigData.html)
+- [R + Spark + BigData](./html/02.+R+Spark+BigData.html)
