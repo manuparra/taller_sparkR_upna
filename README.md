@@ -1,7 +1,7 @@
 # Taller de procesamiento en BigData con Spark + R 
 
 
-![header](./imgs/header)
+![header](./imgs/header.png)
 
 <HR>
 
