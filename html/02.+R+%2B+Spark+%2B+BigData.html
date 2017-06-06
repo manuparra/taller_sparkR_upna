@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>01. Procesamiento masivo de datos con Hadoop y Spark</title>
+<title>02. R + Spark + BigData</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11763,81 +11763,137 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Herramientas-tradicionales-de-an&#225;lisis-de-datos:">Herramientas tradicionales de an&#225;lisis de datos:<a class="anchor-link" href="#Herramientas-tradicionales-de-an&#225;lisis-de-datos:">&#182;</a></h2><ul>
-<li>Unix scripts</li>
-<li>Pandas</li>
-<li>SPSS</li>
-<li>SAS</li>
-<li>R</li>
+<h1 id="R+-Spark-+-Big-Data">R+ Spark + Big Data<a class="anchor-link" href="#R+-Spark-+-Big-Data">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>La tendencia más reciente en el análisis de grandes conjuntos de datos indica la necesidad de un análisis <em>INTERACTIVO</em> de grandes conjuntos de datos.</p>
+<p>Debido a ello se han desarrollado herramientas académicas y comerciales para trabajar de este modo con los datos.</p>
+<p>Está claro que cada vez más el uso de herramientas como R para el análisis de datos, ya que permiten una mejora sustancial y más avanzada para el estudio de los datos. R, como sabemos, es ya hoy en día bastante popular y provee de soporte para procesamiento de datos estructurados usando dataframes y lo mejor de todo es que incluye en CRAN un número muy elevado de paquetes para análisis estadístico y visualización.</p>
+<HR>
+
+<ul>
+<li>R es la herramienta <code>de facto</code> para el análisis de datos</li>
+<li>R soporta procesamiento de datos estrcuturados <code>dataframes</code></li>
+<li>R tiene miles de paquetes para todo tipo de tareas: analíticas, visualización, minería de datos, ...</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="R">R<a class="anchor-link" href="#R">&#182;</a></h1><p>El proyecto R, o el lenguaje R es un lenguaje de programación, un entorno de desarrollo interactivo, y un conjunto de bibliotecas de computación estadistica.</p>
+<p>R es un lenguaje interpretado y provee de soporte para ejecución condicional, bucles, etc. 
+R también incluye caracteristicas para computación nmérica, con tipos de datos vectores, matrices, etc.
+Otra característica fundamental es el uso de dataframes: estructuras de datos en tablas donde cada columna  está formada por elementos con su tipo de dato. Estos dataframes pueden ser manipulados para filtrado, agregación, etc.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Entonces,-&#191;cu&#225;l-es-el-problema?-&#191;Por-qu&#233;-no-se-usa-para-Datos-Masivos?">Entonces, &#191;cu&#225;l es el problema? &#191;Por qu&#233; no se usa para Datos Masivos?<a class="anchor-link" href="#Entonces,-&#191;cu&#225;l-es-el-problema?-&#191;Por-qu&#233;-no-se-usa-para-Datos-Masivos?">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>El análisis de datos usando R está limitado por <strong>la cantidad de memoria disponible</strong> en una sola máquina y además R trabaja en un sólo hilo/proceso (<em>parallel</em>), por lo que <strong>es poco práctico</strong> usar R para grandes conjuntos de datos.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#191;Qu&#233;-es-Spark?">&#191;Qu&#233; es Spark?<a class="anchor-link" href="#&#191;Qu&#233;-es-Spark?">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Algunas de estas limitaciones se han abordado, a través de un mejor soporte de Entrada/Salida, la integración con Hadoop y el diseño de  aplicaciones R distribuidas que se pueden integrar con los motores de Bases de Datos más extendidos</p>
+<p>Por tanto, analizamos cómo podemos escalar los programas R al tiempo que facilitamos su uso y despliegue a través de varias cargas de trabajo.</p>
+<p>Hay una serie de beneficios para el diseño de un frontend R que está  integrado con Spark:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Bibliotecas de soporte: Spark, contiene bilbiotecas para trabajar con fuentes de datos y  SQL, 
+ Machine Learning Distrbuido, análisis de grafos, etc.</li>
+<li>Fuentes de datos: Desde bases de datos, HDFS, HBase, Cassandra, JSON, CSV, Parquet, ...</li>
+<li>Rendimiento: Planificación de tareas, generación de código, gestión de memoria, ...</li>
+</ul>
+<p>Apache Spark es un motor de proposito general para procesamiento de conjuntos de datos masivos. El proyecto inicialmete introdujo el RDD, Resilient Distributed Datasets, una API para computación tolerante a fallos en un entorno de cluster.</p>
+<p>Más recientemte muchas más APIs de alto nivel están siendo desarrolladas en Spark. Estás son las siguientes:</p>
+<ul>
+<li>Machine Learning Library (MLLib) una biblioteca para machine learning a gran escala.</li>
+<li>GraphX, una biblioteca para procesamiento de grafos a gran escala </li>
+<li>SparkSQL, una API para consultas analíticas en SQL</li>
+</ul>
+<p>Las bibliotecas están integradas en el CORE de Spark, por lo que Spark, puede permitir flujos de trabajos complejos, donde consultas SQL pueden ser usadas para preprocesar posteriormente los datos y analizarlos de forma avanzada con la parte de Machine Learning</p>
+<h2 id="&#160;&#191;Por-qu&#233;-Spark?-&#191;Qu&#233;-ventajas-tiene?">&#160;&#191;Por qu&#233; Spark? &#191;Qu&#233; ventajas tiene?<a class="anchor-link" href="#&#160;&#191;Por-qu&#233;-Spark?-&#191;Qu&#233;-ventajas-tiene?">&#182;</a></h2><p>Desde el inicio de Hadoop hace más de 10 años, poco a poco han aparecido nuevos problemas que ya no se podían resolver usando el paradigma de MapReduce. Esto ha echo que hayan aparecido nuevos sistemas para afrontar estos problemas, apareciendo :</p>
+<p><img src="https://sites.google.com/site/manuparra/home/flora.png" alt="flora"></p>
+<p><img src="https://sites.google.com/site/manuparra/home/lenguajes.png" alt="lang"></p>
+<p>Una característica importante es que muchas de las aplicaciones ya existentes se han hecho compatibles con Spark y que estén surgiendo nuevas enfocadas en trabajar con Spark en áreas especificas de procesamiento de datos masivos.</p>
+<p><img src="https://sites.google.com/site/manuparra/home/fauna.png" alt="fauna"></p>
+<p>Spark es:</p>
+<ul>
+<li>Rápido </li>
+<li>Escalable</li>
+<li>Interactivo</li>
+</ul>
+<p>En cuando a R tenemos que sus características principales son:</p>
+<ul>
+<li>Estadísticas</li>
+<li>Muchos paquetes para todo</li>
+<li>Gráficos</li>
+</ul>
+<p>Si únimos todo (Spark+R):</p>
+<p><img src="./imgs/sparkyr.png" alt="SparkR"></p>
+<p><strong>Una ventaja adicional es el RDD</strong></p>
+<p>Incluye tranformaciones de datos con:</p>
+<ul>
+<li>map</li>
+<li>filter</li>
+<li>groupBy </li>
 <li>...</li>
-<li>Excel ... ;)</li>
 </ul>
-<p>Todas ellas operan sobre una única máquina, no conectadas o conectadas, con recursos limitados, etc.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="El-problema-de-los-grandes-conjuntos-de-datos.-El-problema-sobre-BigData.">El problema de los grandes conjuntos de datos. El problema sobre <em>BigData</em>.<a class="anchor-link" href="#El-problema-de-los-grandes-conjuntos-de-datos.-El-problema-sobre-BigData.">&#182;</a></h2><ul>
-<li>Los datos crecen más rápido que la velocidad de computación.</li>
-<li>Fuentes de datos creciendo: datos de la web, datos científicos, datos móviles, datos de sistemas, ...</li>
-<li>Almacenamiento muy barato: El tamaño se dobla cada 18 meses.</li>
-<li>Cuellos de botella en la CPU y almacenamiento.</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Ejemplos">Ejemplos<a class="anchor-link" href="#Ejemplos">&#182;</a></h3><ul>
-<li>Logs diarios de FaceBook: <strong>60 TB</strong></li>
-<li>1000 genomas: <strong>200 TB</strong></li>
-<li>CERN: <strong> 25 PB anuales</strong></li>
-<li>Indice web de Google: <strong>10+ PB</strong></li>
-<li>Coste de 1 TB de discoduro: <strong>~35 ... 50 €</strong></li>
-<li>Tiempo de lectura de 1 TB: 3 horas !!!! (100 MB/s)</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Un-problema-y-una-soluci&#243;n-para-almacenar-y-analizar-grandes-conjuntos-de-datos">Un problema y una soluci&#243;n para almacenar y analizar grandes conjuntos de datos<a class="anchor-link" href="#Un-problema-y-una-soluci&#243;n-para-almacenar-y-analizar-grandes-conjuntos-de-datos">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="http://hadoop.apache.org/images/hadoop-logo.jpg" alt="Hadoop"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Una máquina sola no puede procesar o incluso almacenar todos los datos</p>
+<p>Acciones sobre los datos:</p>
 <ul>
-<li><strong>Sólo una solución: distribuir  los datos sobre clusters</strong></li>
+<li>count </li>
+<li>collect </li>
+<li>save </li>
+<li>...</li>
 </ul>
-<p>Una de las soluciones iniciales: MAP REDUCE (<a href="https://www.ibm.com/analytics/us/en/technology/hadoop/mapreduce/">https://www.ibm.com/analytics/us/en/technology/hadoop/mapreduce/</a>)</p>
+<p>En R entonces utilizamos SparkDataFrames (RDDs manejables dentro del entorno de R):</p>
+<p><img src="https://sites.google.com/site/manuparra/home/r2d2.png" alt="R2D2"></p>
 
 </div>
 </div>
@@ -11847,168 +11903,35 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="https://sites.google.com/site/manuparra/home/mpareduce.png" alt="sd"></p>
+<h1 id="An&#225;lisis-escalable-interactivo-con-SparkR-+-sparklyr">An&#225;lisis escalable interactivo con <code>SparkR</code> + <code>sparklyr</code><a class="anchor-link" href="#An&#225;lisis-escalable-interactivo-con-SparkR-+-sparklyr">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>SparkR y sparklyr están construidos como un paquetes en R, luego no es necesario hacer cosas especiales para que funcione.</p>
+<p>El componente principal de SparkR es un DDF, Distributed Data Frame, que permite procesamiento de datos estructurados utilizando la sintaxis familiar para los usuarios acostumbrados a R.</p>
+<p>Para mejorar el rendimiento, sobre grandes conjuntos de datos, SparkR provee de "evaluación perezosa" para operaciones sobre dataframes y utiliza además un optimizador de consultas relacionales para optimiar la ejecución.</p>
+<p><img src="https://sites.google.com/site/manuparra/home/rspark_arch.png" alt="coresparkr"></p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<center>MapReduce es el corazón de Hadoop.</center><p>Este paradigma de programación permite una escalabilidad masiva a través de cientos o miles de servidores en un clúster con Hadoop. El concepto de MapReduce es bastante simple de entender.</p>
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span>
+</pre></div>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Limitaciones de Hadoop y MapReduce:</p>
-<ul>
-<li>Latencia para el acceso a datos.</li>
-<li>Cantidades grandes de ficheros pequeños.</li>
-<li>Escribe una vez, lee varias.</li>
-<li>No se puede acceder con los comandos tradicionales de Linux (ls, cat, vim...).</li>
-</ul>
-<p>En cuanto a MapReduce:</p>
-<ul>
-<li>Es muy difícil de depurar: Al procesarse el programa en los nodos donde se encuentran los bloques de datos.</li>
-<li><strong>No todos los algoritmos se pueden escribir</strong> con el paradigma MapReduce. Por ejemplo, el famoso algoritmo de grafos <em>Dijkstra</em>, al necesitar un procesamiento secuencial, no se puede escribir en MapReduce.</li>
-</ul>
-<p><img src="http://www.happyminds.es/wp-content/uploads/2013/01/hdfs-logo.jpg" alt="hdfs"></p>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="La-motivaci&#243;n-de-Apache-Spark">La motivaci&#243;n de Apache Spark<a class="anchor-link" href="#La-motivaci&#243;n-de-Apache-Spark">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>El uso de MAP REDUCE para trabajos complejos, consultas interactivas y procesamiento en tiempo real, involucra <strong>enormes cantidades de entrada</strong> y salida de disco.</p>
-<p>El trabajo con Disco es muy lento !</p>
-<p><img src="https://sites.google.com/site/manuparra/home/memory.png" alt="memory"></p>
-<p><img src="https://sites.google.com/site/manuparra/home/memchange.png" alt="memchange"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Almacenar más datos en memoria. Usar más memoria en lugar de disco.</strong></p>
-<p><img src="https://sites.google.com/site/manuparra/home/faster.png" alt="faster"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Resilient-Distributed-Datasets-(RDDs)">Resilient Distributed Datasets (RDDs)<a class="anchor-link" href="#Resilient-Distributed-Datasets-(RDDs)">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Colecciones de objetos particionados y repartidos a lo largo del cluster, almacenado en memoría o disco.</li>
-<li>Manipulados a través de deversas transformaciones y acciones (map, filter, join, count, collect, save, ...)</li>
-<li>Son automáticamente reconstruidos en caso de fallo de la máquina </li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#160;Hadoop-(Map-Reduce)-y-Spark">&#160;Hadoop (Map Reduce) y Spark<a class="anchor-link" href="#&#160;Hadoop-(Map-Reduce)-y-Spark">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<table>
-<thead><tr>
-<th style="text-align:center">Caracteristica</th>
-<th style="text-align:center">Hadoop</th>
-<th style="text-align:center">Spark</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Almacenamiento</td>
-<td style="text-align:center">Disco</td>
-<td style="text-align:center">En memoria o disco</td>
-</tr>
-<tr>
-<td style="text-align:center">Operaciones</td>
-<td style="text-align:center">Map Reduce</td>
-<td style="text-align:center">Map Reduce Join, Sample</td>
-</tr>
-<tr>
-<td style="text-align:center">Modelo de  ejecución</td>
-<td style="text-align:center">Por lotes</td>
-<td style="text-align:center">Por lotes Interactivo Streaming</td>
-</tr>
-<tr>
-<td style="text-align:center">Lenguaje</td>
-<td style="text-align:center">Java</td>
-<td style="text-align:center">Scala, Java, R y Python</td>
-</tr>
-</tbody>
-</table>
-<p>Procesamiento en Memoria, puede marcar gran diferencia</p>
-<p><img src="https://sites.google.com/site/manuparra/home/inmemory.png" alt="compare"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Las ventajas principales de Spark:</strong></p>
-<ol>
-<li>Una plataforma de código abierto con una comunidad activa</li>
-<li>Una plataforma muy rápida </li>
-<li>Una plataforma unificada para gestionar datos</li>
-<li>Consola interactiva</li>
-<li>Una gran API para trabajar con los datos</li>
-<li>Programable desde Java, Python, R y Scala</li>
-<li>Procesamiento de Grafos</li>
-<li>Procesamiento de Datos en Streaming</li>
-</ol>
-
-</div>
-</div>
 </div>
     </div>
   </div>
