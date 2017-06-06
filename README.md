@@ -1,5 +1,10 @@
 # Taller de procesamiento en BigData con Spark + R 
 
+
+![header](./imgs/header)
+
+<HR>
+
 *Impartido por*:
 
 **Manuel J. Parra Royón**
@@ -17,3 +22,4 @@ Taller realizado en Departamento de Estadística e Investigación Operativa de l
 
 ## Contenido del Taller
 
+- [Introducción al procesamiento masivo de datos](./html/01.+Procesamiento+masivo+de+datos+con+Hadoop+y+Spark.html)
