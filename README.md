@@ -38,5 +38,6 @@ Taller realizado en Departamento de Estadística e Investigación Operativa de l
 - [MachineLearning con SparkylR](./html/13._Machine_Learning_con_sparklyr.html)
 - [Envío de trabajos con spark-submit](./html/14._Enviando_trabajos_con_spark-submit.html)
 - [Visualización de datos (beta)](./html/15._Visualización_interactiva_de_datos_con_Zeppelin.html)
+- [Uso avanzado de Spark: Scala, Streaming, etc. Amazon AWS](./html/16._Uso_avanzado.html)
 - [Soluciones a los problemas](./html/Soluciones.html)
 
